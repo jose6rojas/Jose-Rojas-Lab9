@@ -12,7 +12,7 @@ class BusterSword : public GodArc
 		int poderExplosivo;
 	public:
 		BusterSword();
-		BusterSword(int, int, int, int);
+		BusterSword(int, int, int, int); // ataqueCrush, poderExplosivo, ataque, elemento
 		
 		void setAtaqueCrush(int);
 		int getAtaqueCrush();

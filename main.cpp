@@ -216,6 +216,107 @@ int main()
 		}
 		else if(op_1 == 4) // Simulacion
 		{
+			if(GodEaters.size() != 0 && Aragamis.size() != 0)
+			{
+				// GodEater
+				int op_GE;
+				cout << "\nGodEaters" << endl;
+				for(int i = 0; i < GodEaters.size(); i++)
+				{
+					cout << i << ". ";
+					cout << GodEaters[i] -> getNombre() << ", ";
+					cout << "Ataque: " << GodEaters[i] -> getArma() -> attack() << endl;
+				}
+				cout << "Escoja un GodEater: ";
+				cin >> op_GE;
+				
+				GodEater* GE;
+				if(op_GE < 0 || op_GE > GodEaters.size() - 1)
+				{
+					cout << "\nDebe escoger una opcion valdia." << endl;
+					break;
+				}
+				else
+					GE = GodEaters[op_GE];
+				
+				// Aragami
+				int op_A;
+				cout << "\nAragami" << endl;
+				for(int i = 0; i < Aragamis.size(); i++)
+				{
+					cout << i << ". ";
+					cout << Aragamis[i] -> getNombre() << ", ";
+					cout << "Ataque: " << Aragamis[i] -> getAtaque() << endl;
+				}
+				cout << "Escoja un Aragami: ";
+				cin >> op_A;
+				
+				Aragami* A;
+				if(op_A < 0 || op_A > Aragamis.size() - 1)
+				{
+					cout << "\nDebe escoger una opcion valida." << endl;
+					break;
+				}
+				else
+					A = Aragamis[op_A];
+				
+				int ataque_A;
+				ataque_A = A -> getAtaque();
+				int defensa_A;
+				defensa_A = A -> getDefensa();
+				
+				int ataque_GE;
+				ataque_GE = GE -> getArma() -> attack();
+				int defensa_GE;
+				defensa_GE = GE -> getDefensa();
+				
+				// Simulacion
+				bool a = false;
+				int cont = 1;
+				while(GE -> getVida() > 0 || A -> getVida() > 0)
+				{
+					if(defensa_GE > ataque_A)
+					{
+						cout << "\nLa defensa del GodEater es mayor al ataque del Aragami." << endl;
+						a = true;
+						break;
+					}
+					else if(defensa_A > ataque_GE)
+					{
+						cout << "\nLa defensa del Aragami es mayor al ataque del GodEater." << endl;
+						a = true;
+						break;
+					}
+					else
+					{
+						if(cont % 2 != 0) { // Aragami vs GodEater
+							cout << "\nAragami vs GodEater" << endl;
+							cout << "Ataque Aragami: " << ataque_A << endl;
+							cout << "Defensa GodEater: " << defensa_GE << endl;
+							cout << "Damage: " << ataque_A - defensa_GE;
+							GE -> setVida(GE -> getVida() - (ataque_A - defensa_GE));
+						}
+						else // GodEater vs Aragami
+						{
+							cout << "\nGodEater vs Aragami" << endl;
+							cout << "Ataque GodEater: " << ataque_GE << endl;
+							cout << "Defensa Aragami: " << defensa_A << endl;
+							cout << "Damage: " << ataque_GE - defensa_A;
+							A -> setVida(A -> getVida() - (ataque_GE - defensa_A));
+						}
+					}
+					cont++;
+				}
+				if(a == false)
+				{
+					if(GE -> getVida() > A -> getVida())
+						cout << "\nGanador: GodEater " << GE -> getNombre() << endl;
+					else
+						cout << "\nGanador: Aragami " << A -> getNombre() << endl;
+				}
+			}
+			else
+				cout << "\nDebe de haber por lo menos 1 GodEater y 1 Aragami para poder iniciar una simulacion.\n";
 		}
 		else if(op_1 == 5) { } // Salir
 		else
@@ -234,23 +335,3 @@ int main()
 	
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

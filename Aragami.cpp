@@ -50,3 +50,6 @@ void Aragami::setElemento(int e)
 		elemento = "Divine";
 }
 string Aragami::getElemento() { return elemento; }
+// ataque
+void Aragami::setAtaque(int ataque) { this -> ataque = ataque; }
+int Aragami::getAtaque() { return ataque; }

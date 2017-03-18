@@ -24,6 +24,7 @@ class GodEater
 		void setNombre(string);
 		string getNombre();
 		// vida
+		void setVida(int vida) { this -> vida = vida; }
 		int getVida();
 		// nivel
 		void setNivel(int);

@@ -20,6 +20,8 @@ class GodArc
 		int getAtaque();
 		void setElemento(int); // 1. Divine, 2. Blaze, 3. Freeze
 		string getElemento();
+		
+		virtual int attack() { return ataque; }
 };
 
 #endif

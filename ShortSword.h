@@ -18,6 +18,8 @@ class ShortSword : public GodArc
                 int getNivelPierce();
                 void setPoderSpeedCut(int);
                 int getPoderSpeedCut();
+		
+		int attack() { return ataque + nivelPierce; }
 };
 
 #endif

@@ -18,6 +18,8 @@ class Scythe : public GodArc
                 int getNivelSlash();
                 void setPoderCorteLargo(int);
                 int getPoderCorteLargo();
+		
+		int attack() { return ataque + nivelSlash; }
 };
 
 #endif

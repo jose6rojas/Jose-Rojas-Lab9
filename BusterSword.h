@@ -18,6 +18,8 @@ class BusterSword : public GodArc
 		int getAtaqueCrush();
 		void setPoderExplosivo(int);
 		int getPoderExplosivo();
+		
+		int attack() { return ataque + ataqueCrush; }
 };
 
 #endif

@@ -34,7 +34,7 @@ class GodEater
 		void setArma(GodArc*);
 		GodArc* getArma();
 		
-		~GodEater() { delete arma; }
+		// ~GodEater() { delete arma; }
 };
 
 #endif

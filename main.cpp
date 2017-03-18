@@ -104,6 +104,27 @@ int main()
 				}
 				else if(op_GA == 3) // Eliminar
 				{
+					if(GodArcs.size() == 0)
+						cout << "\nNo hay GodArcs para eliminar." << endl;
+					else {
+						int op_GA_3;
+						cout << "\nGodArcs" << endl;
+						for(int i = 0; i < GodArcs.size(); i++)
+						{
+							cout << i << ". ";
+							cout << "Elemento: " << GodArcs[i] -> getElemento() << ", ";
+							cout << "Ataque: " << GodArcs[i] -> attack() << endl;
+						}
+						cout << "Escoja la GodArc que desea eliminar: ";
+						cin >> op_GA_3;
+						if(op_GA_3 < 0 || op_GA_3 > GodArcs.size() - 1)
+							cout << "\nDebe escoger una opcion valida." << endl;
+						else
+						{
+							GodArcs.erase(GodArcs.begin() + op_GA_3);
+							cout << "\nGodArc eliminada correctamente" << endl;
+						}
+					}
 				}
 				else if(op_GA == 4) { } // Regresar al Menu Principal
 				else

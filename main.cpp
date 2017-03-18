@@ -41,27 +41,27 @@ int main()
 				if(op_GA == 1) // Agregar
 				{
 					int ataque;
-					cout << "\nIngrese el nivel del ataque base: ";
+					cout << "Ingrese el nivel del ataque base: ";
 					cin >> ataque;
 					
 					int e;
-					cout << "\nElemento\n1. Divine\n2. Blaze\n3. Freeze" << endl;
+					cout << "Elemento\n1. Divine\n2. Blaze\n3. Freeze" << endl;
 					cout << "Escoja el elemento: ";
 					cin >> e;
 					
 					int op_GA_1;
-					cout << "\nAgregar\n¿Que tipo de GodArc desea agregar?" << endl;
+					cout << "¿Que tipo de GodArc desea agregar?" << endl;
 					cout << "1. Buster Sword\n2. Scythe\n3. Short Sword" << endl;
 					cout << "Escoja una opcion: ";
 					cin >> op_GA_1;
 					if(op_GA_1 == 1) // BusterSword
 					{
 						int nivelAtaqueCrush;
-						cout << "\nIngrese el nivel del ataque crush: ";
+						cout << "Ingrese el nivel del ataque crush: ";
 						cin >> nivelAtaqueCrush;
 						
 						int poderExplosivo;
-						cout << "\nIngrese el poder explosivo: ";
+						cout << "Ingrese el poder explosivo: ";
 						cin >> poderExplosivo;
 						
 						BusterSword* BS = new BusterSword(nivelAtaqueCrush, poderExplosivo, ataque, e);
@@ -71,11 +71,11 @@ int main()
 					else if(op_GA_1 == 2) // Scythe
 					{
 						int nivelSlash;
-						cout << "\nIngrese el nivel de slash: ";
+						cout << "Ingrese el nivel de slash: ";
 						cin >> nivelSlash;
 						
 						int poderCorteLargo;
-						cout << "\nIngrese el poder de corte largo: ";
+						cout << "Ingrese el poder de corte largo: ";
 						cin >> poderCorteLargo;
 						
 						Scythe* S = new Scythe(nivelSlash, poderCorteLargo, ataque, e);
@@ -85,11 +85,11 @@ int main()
 					else if(op_GA_1 == 3) // ShortSword
 					{
 						int nivelPierce;
-						cout << "\nIngrese el nivel de pierce: ";
+						cout << "Ingrese el nivel de pierce: ";
 						cin >> nivelPierce;
 						
 						int poderSpeedCut;
-						cout << "\nIngrese el poder de speed cut: ";
+						cout << "Ingrese el poder de speed cut: ";
 						cin >> poderSpeedCut;
 						
 						ShortSword* SS = new ShortSword(nivelPierce, poderSpeedCut, ataque, e);
@@ -124,17 +124,17 @@ int main()
 					if(op_GE == 1) // Agregar
 					{
 						string nombre;
-						cout << "\nIngrese el nombre: ";
+						cout << "Ingrese el nombre: ";
 						cin >> nombre;
 						
 						int nivel;
-						cout << "\nIngrese el nivel: ";
+						cout << "Ingrese el nivel: ";
 						cin >> nivel;
 						
 						GodEater* GE = new GodEater(nombre, nivel);
 						
 						int op_arma;
-						cout << "\nGodArc (ARMA)" << endl;
+						cout << "GodArc (ARMA)" << endl;
 						for(int i = 0; i < GodArcs.size(); i++)
 						{
 							cout << i << ". ";
@@ -179,24 +179,24 @@ int main()
 				if(op_A == 1) // Agregar
 				{
 					string nombre;
-					cout << "\nIngrese el nombre: ";
+					cout << "Ingrese el nombre: ";
 					cin >> nombre;
 					
 					int vida;
-					cout << "\nIngrese la cantidad de vida: ";
+					cout << "Ingrese la cantidad de vida: ";
 					cin >> vida;
 					
 					int defensa;
-					cout << "\nIngrese el nivel de defensa: ";
+					cout << "Ingrese el nivel de defensa: ";
 					cin >> defensa;
 					
 					int e;
-                                        cout << "\nElemento\n1. Divine\n2. Blaze\n3. Freeze" << endl;
+                                        cout << "Elemento\n1. Divine\n2. Blaze\n3. Freeze" << endl;
                                         cout << "Escoja el elemento: ";
                                         cin >> e;
 					
 					int ataque;
-					cout << "\nIngrese el nivel de ataque: ";
+					cout << "Ingrese el nivel de ataque: ";
 					cin >> ataque;
 					
 					Aragami* A = new Aragami(nombre, vida, defensa, e, ataque);
@@ -220,7 +220,7 @@ int main()
 			{
 				// GodEater
 				int op_GE;
-				cout << "\nGodEaters" << endl;
+				cout << "GodEaters" << endl;
 				for(int i = 0; i < GodEaters.size(); i++)
 				{
 					cout << i << ". ";
@@ -241,7 +241,7 @@ int main()
 				
 				// Aragami
 				int op_A;
-				cout << "\nAragami" << endl;
+				cout << "Aragami" << endl;
 				for(int i = 0; i < Aragamis.size(); i++)
 				{
 					cout << i << ". ";
@@ -273,7 +273,8 @@ int main()
 				// Simulacion
 				bool a = false;
 				int cont = 1;
-				while(GE -> getVida() > 0 || A -> getVida() > 0)
+				cout << "\nSIMULACION";
+				while((GE -> getVida() > 0) && (A -> getVida() > 0))
 				{
 					if(defensa_GE > ataque_A)
 					{
@@ -291,17 +292,19 @@ int main()
 					{
 						if(cont % 2 != 0) { // Aragami vs GodEater
 							cout << "\nAragami vs GodEater" << endl;
+							cout << "Vida Aragami: " << A -> getVida() << ", Vida GodEater: " << GE -> getVida() << endl;
 							cout << "Ataque Aragami: " << ataque_A << endl;
 							cout << "Defensa GodEater: " << defensa_GE << endl;
-							cout << "Damage: " << ataque_A - defensa_GE;
+							cout << "Damage: " << ataque_A - defensa_GE << endl;
 							GE -> setVida(GE -> getVida() - (ataque_A - defensa_GE));
 						}
 						else // GodEater vs Aragami
 						{
 							cout << "\nGodEater vs Aragami" << endl;
+							cout << "Vida GodEater: " << GE -> getVida() << ", Vida Aragami: " << A -> getVida() << endl;
 							cout << "Ataque GodEater: " << ataque_GE << endl;
 							cout << "Defensa Aragami: " << defensa_A << endl;
-							cout << "Damage: " << ataque_GE - defensa_A;
+							cout << "Damage: " << ataque_GE - defensa_A << endl;
 							A -> setVida(A -> getVida() - (ataque_GE - defensa_A));
 						}
 					}
